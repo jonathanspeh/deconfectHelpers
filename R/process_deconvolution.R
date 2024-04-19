@@ -1,4 +1,13 @@
-# Converts results of cellanneal into long format
+#' Process cellanneal output
+#'
+#' @param cell_mix Output of a run_cellanneal_r call
+#'
+#' @return deconvolution in long format
+#' @export
+#'
+#' @examples
+#' 2 + 2
+
 process_cellanneal <- function(cell_mix){
   tryCatch(
     expr = {
@@ -11,3 +20,5 @@ process_cellanneal <- function(cell_mix){
     }
   )
 }
+
+
