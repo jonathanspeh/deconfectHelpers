@@ -22,6 +22,29 @@ plot_deconvolution_violin <- function(deconvolution, actual){
 }
 
 
+#' Internal plot function
+#'
+#' @param cell_type_filter a vector of celltypes to plot
+#'
+#' @return a plot of the selected celltype
+#'
+
+plot_corr_celltype <- function(est_v_actual, cell_type_filter) {
+  subs <- est_v_actual |>
+    dplyr::filter(cell_type == cell_type_filter)
+  min <- min(min(subs$proportion_estimate),min(subs$proportion_actual))
+  max <- max(max(subs$proportion_estimate),max(subs$proportion_actual))
+  lim <- c(min, max)
+  subs |>
+    ggplot2::ggplot(ggplot2::aes(x = proportion_estimate, y = proportion_actual)) +
+    ggplot2::geom_point() +
+    ggplot2::geom_smooth(method = "lm") +
+    ggplot2::ggtitle(cell_type_filter) +
+    ggplot2::coord_cartesian(xlim = lim, ylim = lim)
+}
+
+
+
 
 #' Scatterplot with fitline for deconvolution results
 #'
@@ -39,24 +62,7 @@ plot_deconvolution_violin <- function(deconvolution, actual){
 plot_deconvolution_celltype_corrs <- function(deconvolution, actual){
   estimate_v_actual <- dplyr::left_join(deconvolution, actual, by = dplyr::join_by(sample, cell_type),
                                  suffix = c("_estimate", "_actual"))
-    cell_types <- unique(estimate_v_actual$cell_type)
 
-
-  plot_estimate_v_actual <- function(cell_type_filter) {
-    subs <- estimate_v_actual |>
-      dplyr::filter(cell_type == cell_type_filter)
-
-    min <- min(min(subs$proportion_estimate),min(subs$proportion_actual))
-    max <- max(max(subs$proportion_estimate),max(subs$proportion_actual))
-    lim <- c(min, max)
-    subs |>
-      ggplot2::ggplot(ggplot2::aes(x = proportion_estimate, y = proportion_actual)) +
-      ggplot2::geom_point() +
-      ggplot2::geom_smooth(method = "lm") +
-      ggplot2::ggtitle(cell_type_filter) +
-      ggplot2::coord_cartesian(xlim = lim, ylim = lim)
-  }
-
-  lapply(cell_types, plot_estimate_v_actual)
-
+  cell_types <- unique(estimate_v_actual$cell_type)
+  lapply(cell_types, plot_corr_celltype, est_v_actual = estimate_v_actual)
 }
