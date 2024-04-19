@@ -7,7 +7,7 @@
 process_cellanneal(cell_mix)
 }
 \arguments{
-\item{cell_mix}{}
+\item{cell_mix}{Output of a run_cellanneal_r call}
 }
 \value{
 deconvolution in long format
