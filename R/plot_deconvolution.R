@@ -15,9 +15,7 @@
 plot_deconvolution_violin <- function(deconvolution, actual){
 
   deconvolution <- dplyr::mutate(deconvolution, flag = "estimated")
-
   actual <- dplyr::mutate(actual, flag = "actual")
-
   rbind(deconvolution, actual) |>
     dplyr::mutate(group = paste(.data$cell_type, .data$flag, sep = "_")) |>
       ggplot2::ggplot(ggplot2::aes(x = .data$cell_type, y = .data$proportion, fill = .data$flag)) +
@@ -50,7 +48,7 @@ plot_corr_celltype <- function(data, cell_type_filter){
   lim <- c(min, max)
 
   subs |>
-    ggplot2::ggplot(ggplot2::aes(x = .data$proportion_estimate, y = .data$proportion_actual)) +
+    ggplot2::ggplot(ggplot2::aes(x = .data$proportion_actual, y = .data$proportion_estimate)) +
     ggplot2::geom_point() +
     ggplot2::geom_smooth(method = "lm") +
     ggplot2::ggtitle(cell_type_filter) +
@@ -81,3 +79,7 @@ plot_deconvolution_celltype_corrs <- function(deconvolution, actual){
   cell_types <- unique(estimate_v_actual["cell_type"])
   lapply(cell_types, plot_corr_celltype, data = estimate_v_actual)
 }
+
+
+
+
