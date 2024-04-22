@@ -18,7 +18,7 @@ A plot for each cell_type in the datasets
 Scatterplot with fitline for deconvolution results
 }
 \examples{
-#' \dontrun{
-plot_deconvolution_celltype_corrs(deconvultion, actual)
+\dontrun{
+plot_deconvolution_celltype_corrs(deconvolution, actual)
 }
 }
