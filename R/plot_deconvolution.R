@@ -76,8 +76,9 @@ plot_deconvolution_celltype_corrs <- function(deconvolution, actual){
   estimate_v_actual <- dplyr::left_join(deconvolution, actual, by = dplyr::join_by("sample", "cell_type"),
                                  suffix = c("_estimate", "_actual"))
 
-  cell_types <- unique(estimate_v_actual["cell_type"])
+  cell_types <- unlist(unique(estimate_v_actual["cell_type"]))
   lapply(cell_types, plot_corr_celltype, data = estimate_v_actual)
+
 }
 
 
