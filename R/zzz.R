@@ -16,6 +16,7 @@
              reticulate::py_install("cellanneal-master/", pip = TRUE)
              file.remove("cellanneal.zip")
              unlink("cellanneal-master", recursive = TRUE)
+             reticulate::use_condaenv("cellanneal-r")
            })
   reticulate::source_python(
     system.file("python/run_cellanneal.py", package = "deconfectHelpers"),
