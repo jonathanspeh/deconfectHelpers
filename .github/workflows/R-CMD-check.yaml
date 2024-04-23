@@ -48,3 +48,8 @@ jobs:
         with:
           upload-snapshots: true
           build_args: 'c("--no-manual","--compact-vignettes=gs+qpdf")'
+      - name: install conda
+        run: |
+          install.packages('reticulate')
+          reticulate::install_miniconda()
+        shell: Rscript {0}
