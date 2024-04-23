@@ -1,5 +1,4 @@
 .onLoad <- function(libname, pkgname){
-             #packageStartupMessage("Creating cellanneal-r conda environment and installing dependencies")
              reticulate::conda_create("cellanneal-r", "python==3.8")
              reticulate::conda_install("cellanneal-r", c("numpy==1.24", "scipy==1.9",
                                                          "matplotlib==3.7", "pandas==1.5",
@@ -19,6 +18,10 @@
               system.file("python/run_cellanneal.py",
                           package = "deconfectHelpers"),
               envir = deconv_env)
+  reticulate::source_python(
+    system.file("python/run_cellanneal.py", package = "deconfectHelpers"),
+    envir = deconv_env
+  )
 }
 
 
