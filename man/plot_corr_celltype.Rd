@@ -4,12 +4,14 @@
 \alias{plot_corr_celltype}
 \title{Internal plot function}
 \usage{
-plot_corr_celltype(data, cell_type_filter)
+plot_corr_celltype(data, cell_type_filter, add_x_y_line = add_x_y_line)
 }
 \arguments{
 \item{data}{a data frame containing estimated and actual fractions}
 
 \item{cell_type_filter}{a vector of celltypes to plot}
+
+\item{add_x_y_line}{Boolean to specify wether to plot red x == y line}
 }
 \value{
 a plot of the selected celltype

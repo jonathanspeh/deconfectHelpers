@@ -4,12 +4,14 @@
 \alias{plot_deconvolution_celltype_corrs}
 \title{Scatterplot with fitline for deconvolution results}
 \usage{
-plot_deconvolution_celltype_corrs(deconvolution, actual)
+plot_deconvolution_celltype_corrs(deconvolution, actual, add_x_y_line = TRUE)
 }
 \arguments{
 \item{deconvolution}{deconvolution results in long format}
 
 \item{actual}{actual fractions in long format}
+
+\item{add_x_y_line}{Boolean to specify wether to plot red x == y line}
 }
 \value{
 A plot for each cell_type in the datasets
