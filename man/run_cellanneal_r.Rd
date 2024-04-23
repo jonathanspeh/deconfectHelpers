@@ -32,7 +32,7 @@ A dataframe containing the results of celltype deconvolution
 \description{
 Wrapper for cellaneals "make_gene_dictionary" and "deconvolve" funktions.
 Takes paths of signature and mixture file and returns dataframe with fractions
-cellanneal has been developed by Lisa Buchauer, see https://github.com/LiBuchauer/cellanneal for mor information
+cellanneal has been developed by Lisa Buchauer, see https://github.com/LiBuchauer/cellanneal for more information
 }
 \examples{
 \dontrun{
