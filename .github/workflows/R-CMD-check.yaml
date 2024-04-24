@@ -50,8 +50,8 @@ jobs:
           
       - name: install conda
         run: |
-          R -e install.packages('reticulate')
-          R -e reticulate::install_miniconda()
+          R -e 'install.packages("reticulate")'
+          R -e 'reticulate::install_miniconda()'
 
       - name: Check package 
         uses: r-lib/actions/check-r-package@v2
