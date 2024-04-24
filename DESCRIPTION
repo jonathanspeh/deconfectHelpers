@@ -20,4 +20,6 @@ Imports:
     ggplot2,
     utils,
     curl,
-    stats
+    stats,
+    Matrix,
+    data.table
