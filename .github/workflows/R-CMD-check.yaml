@@ -50,13 +50,9 @@ jobs:
 
       - name: install conda
         run: | 
-          if [ "${{ runner.os }}" = "Windows" ]; then
             Rscript -e 'install.packages("reticulate", repos = "https://ftp.fau.de/cran/")'
-            Rscript -e 'reticulate::install_miniconda()'
-          else
-            R -e "print('Hello, world!')"
-          fi   
-     
+            Rscript -e 'reticulate::install_miniconda()'  
+            
       - name: Check package 
         uses: r-lib/actions/check-r-package@v2
         with:
