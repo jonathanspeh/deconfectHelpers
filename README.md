@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of deconfectHelpers is to be helpful for my deconvolution project.
+The goal of deconfectHelpers is to gather functions that might be helpful for my deconvolution project. It's mainly wrappers to quickly process deconvolution results.
 
 ## Installation
 
