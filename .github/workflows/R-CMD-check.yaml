@@ -47,12 +47,12 @@ jobs:
         with:
           extra-packages: any::rcmdcheck
           needs: check
-          
-      - name: install conda
-        run: |
-          R -e 'install.packages("reticulate", repos = "https://ftp.fau.de/cran/")'
-          R -e 'reticulate::install_miniconda()'
 
+      - name: install conda
+        run: | 
+            Rscript -e 'install.packages("reticulate", repos = "https://ftp.fau.de/cran/")'
+            Rscript -e 'reticulate::install_miniconda()'  
+            
       - name: Check package 
         uses: r-lib/actions/check-r-package@v2
         with:
