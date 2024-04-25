@@ -4,6 +4,7 @@
 #' @param n_cells_est estimated number of cells, will only be exact if multiple of six
 #' @param make_signature boolean weather to make a signature and write it to disk
 #' @param signature_path path for signature matrix
+#' @param lambdas either NULL for creating random lambdas or a numeric vector of length 6 to specify them
 #'
 #' @return a list containing the counts and annotaiton
 #' @export
@@ -12,7 +13,8 @@
 #' simulate_sc(n_genes = 100, n_cells_est = 30, make_signature = FALSE)
 
 simulate_sc <- function(n_genes = 10000, n_cells_est = 300,
-                        make_signature = TRUE, signature_path = "./signature.csv"){
+                        make_signature = TRUE, signature_path = "./signature.csv",
+                        lambdas = NULL){
   n1 <- round(n_cells_est/6)
   n2 <- round(n_cells_est/6)
   n3 <- round(n_cells_est/3)
@@ -22,13 +24,19 @@ simulate_sc <- function(n_genes = 10000, n_cells_est = 300,
 
   n_cells_actual <- n1 + n2 + n3 + n4 + n5 + n6
 
+    if(is.null(lambdas)){
+    lambdas <- sample(seq(0.01, 0.1, by = 0.01), 6, TRUE)
+  } else if(length(lambdas) != 6 | !is.numeric(lambdas)){
+      stop("lambdas must either be random or a numeric vector of length 6")
+  }
+
   counts <- Matrix::Matrix(cbind(
-    replicate(n1, rpois(n_genes, 0.01)),
-    replicate(n2, rpois(n_genes, 0.02)),
-    replicate(n3, rpois(n_genes, 0.06)),
-    replicate(n4, rpois(n_genes, 0.1)),
-    replicate(n5, rpois(n_genes, 0.05)),
-    replicate(n6, rpois(n_genes, 0.065))), sparse = TRUE)
+    replicate(n1, rpois(n_genes, lambdas[1])),
+    replicate(n2, rpois(n_genes, lambdas[2])),
+    replicate(n3, rpois(n_genes, lambdas[3])),
+    replicate(n4, rpois(n_genes, lambdas[4])),
+    replicate(n5, rpois(n_genes, lambdas[5])),
+    replicate(n6, rpois(n_genes, lambdas[6]))), sparse = TRUE)
 
   colnames(counts) <- paste0("cell_", rep(1:n_cells_actual))
   rownames(counts) <- paste0("gene_", rep(1:n_genes))

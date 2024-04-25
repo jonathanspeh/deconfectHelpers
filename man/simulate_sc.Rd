@@ -8,7 +8,8 @@ simulate_sc(
   n_genes = 10000,
   n_cells_est = 300,
   make_signature = TRUE,
-  signature_path = "./signature.csv"
+  signature_path = "./signature.csv",
+  lambdas = NULL
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ simulate_sc(
 \item{make_signature}{boolean weather to make a signature and write it to disk}
 
 \item{signature_path}{path for signature matrix}
+
+\item{lambdas}{either NULL for creating random lambdas or a numeric vector of length 6 to specify them}
 }
 \value{
 a list containing the counts and annotaiton
