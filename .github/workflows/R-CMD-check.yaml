@@ -50,15 +50,10 @@ jobs:
 
       - name: install conda
         run: |
-          if [ "${{ runner.os }}" = "macos" ]; then
-            wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O ~/miniconda.sh
-            bash ~/miniconda.sh -b -p $HOME/miniconda
-          else
             Rscript -e 'install.packages("reticulate", repos = "https://ftp.fau.de/cran/")'
             Rscript -e 'reticulate::install_miniconda()'
-          fi 
 
-      - name: Check package 
+      - name: Check package
         uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
