@@ -46,7 +46,7 @@ simulate_sc <- function(n_genes = 10000, n_cells_est = 300,
     "cell_type" = c(
       rep("T cells CD4", n1),
       rep("T cells CD8", n2),
-      rep("Macrophages", n3),
+      rep("Dendritic cells", n3),
       rep("NK cells", n4),
       rep("B cells", n5),
       rep("Monocytes", n6)))
