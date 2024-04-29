@@ -1,24 +1,32 @@
-#' Process cellanneal output
+#' Turn results of deconvolution in long format
 #'
-#' @param cell_mix Output of a run_cellanneal_r call
+#' @param cell_mix A dataframe containing a sample column and one column for each cell type
+#' @param fix_cell_names A boolean to specify if the function should attempt to fix the cell types
 #'
 #' @return deconvolution in long format
 #' @export
 #'
 #' @examples
-#' 2 + 2
+#' \dontrun{
+#' pivot_longer_deconvolution(mixture, fix_cell_names = TRUE)
+#' }
 
-process_cellanneal <- function(cell_mix){
+
+pivot_longer_deconvolution <- function(cell_mix, fix_cell_names = TRUE){
   tryCatch(
     expr = {
-      cell_mix |> dplyr::select(!dplyr::starts_with("rho")) |>
+      cell_mix <- cell_mix |> dplyr::select(!dplyr::starts_with("rho")) |>
         tidyr::pivot_longer(!sample, names_to = "cell_type",
                             values_to = "proportion")
       },
     error = function(e){
-      stop("provide valid cellanneal result")
+      stop("provide valid deconvolution dataframe")
     }
   )
+  if(fix_cell_names){
+    cell_mix$cell_type <- fix_cell_names(cell_mix$cell_type)
+  }
+  cell_mix
 }
 
 
@@ -66,4 +74,22 @@ fix_cell_names <- function(cell_names){
   }
 
 
+#' Transpose the results of immunedeconv and turns into long format
+#'
+#' @param cell_mix The results of a immunedeconv deconvolution. Must contain columns for cell type and each sample
+#' @param fix_cell_names A boolean to specify if the function should attempt to fix the cell name
+#'
+#' @return A dataframe containing sample, cell_type and proportopns
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' process_immunedeconv(mixture, fix_cell_names = TRUE)
+#' }
 
+process_immunedeconv <- function(cell_mix, fix_cell_names = TRUE){
+  cell_mix_t <- t(cell_mix[-1])
+  colnames(cell_mix_t) <- cell_mix$cell_type
+  pivot_longer_deconvolution(dplyr::as_tibble(cell_mix_t, rownames = "sample"),
+                             fix_cell_names = fix_cell_names)
+}
