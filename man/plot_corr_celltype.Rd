@@ -4,7 +4,13 @@
 \alias{plot_corr_celltype}
 \title{Internal plot function}
 \usage{
-plot_corr_celltype(data, cell_type_filter, add_x_y_line = add_x_y_line)
+plot_corr_celltype(
+  data,
+  cell_type_filter,
+  add_x_y_line = add_x_y_line,
+  add_metrics = TRUE,
+  append_title = NULL
+)
 }
 \arguments{
 \item{data}{a data frame containing estimated and actual fractions}
@@ -12,6 +18,10 @@ plot_corr_celltype(data, cell_type_filter, add_x_y_line = add_x_y_line)
 \item{cell_type_filter}{a vector of celltypes to plot}
 
 \item{add_x_y_line}{Boolean to specify wether to plot red x == y line}
+
+\item{add_metrics}{boolean if RMSE and correlation should be added to plots}
+
+\item{append_title}{Character to add to ggtitle}
 }
 \value{
 a plot of the selected celltype

@@ -8,7 +8,9 @@ plot_deconvolution_celltype_corrs(
   deconvolution,
   actual,
   add_x_y_line = TRUE,
-  remove_missing_celltypes = TRUE
+  remove_missing_celltypes = TRUE,
+  add_metrics = TRUE,
+  append_title = NULL
 )
 }
 \arguments{
@@ -19,6 +21,10 @@ plot_deconvolution_celltype_corrs(
 \item{add_x_y_line}{Boolean to specify wether to plot red x == y line}
 
 \item{remove_missing_celltypes}{A boolean weather to remove celltypes that are only in one of the datasets}
+
+\item{add_metrics}{boolean if RMSE and correlation should be added to plots}
+
+\item{append_title}{Character to add to ggtitle}
 }
 \value{
 A plot for each cell_type in the datasets
