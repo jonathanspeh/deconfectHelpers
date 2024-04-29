@@ -2,6 +2,7 @@
 #'
 #' @param deconvolution deconvolution results in long format
 #' @param actual actual fractions in long format
+#' @param remove_missing_celltypes A boolean weather to remove celltypes that are only in one of the datasets
 #'
 #' @return A ggplot2 object
 #' @importFrom ggplot2 .data
@@ -12,15 +13,30 @@
 #' plot_deconvolution_violin(deconvultion, actual)
 #'}
 
-plot_deconvolution_violin <- function(deconvolution, actual){
+plot_deconvolution_violin <- function(deconvolution, actual, remove_missing_celltypes = TRUE){
+
+  if(remove_missing_celltypes){
+    deconv_only <- setdiff(deconvolution$cell_type, actual$cell_type)
+    actual_only <- setdiff(actual$cell_type, deconvolution$cell_type)
+    diff <- union(deconv_only, actual_only)
+
+    if(length(diff) > 0){
+      print(paste("The following were found in deconvolution only: ", deconv_only))
+      print(paste("The following were found in  actual only: ", actual_only))
+
+      deconvolution <- dplyr::filter(deconvolution, !.data$cell_type %in% diff)
+      actual <- dplyr::filter(actual, !.data$cell_type %in% diff)
+    }
+  }
 
   deconvolution <- dplyr::mutate(deconvolution, flag = "estimated")
   actual <- dplyr::mutate(actual, flag = "actual")
   rbind(deconvolution, actual) |>
     dplyr::mutate(group = paste(.data$cell_type, .data$flag, sep = "_")) |>
-      ggplot2::ggplot(ggplot2::aes(x = .data$cell_type, y = .data$proportion, fill = .data$flag)) +
-      ggplot2::geom_violin() +
-      ggplot2::scale_x_discrete(guide = ggplot2::guide_axis(n.dodge = 2))
+      ggplot2::ggplot(ggplot2::aes(x = .data$cell_type, y = .data$proportion, fill = .data$flag, colour = .data$flag)) +
+    ggplot2::geom_violin(alpha = 0.9) +
+    ggforce::geom_sina(colour = "black", alpha = 0.4) +
+    ggplot2::scale_x_discrete(guide = ggplot2::guide_axis(n.dodge = 2))
   }
 
 
@@ -40,8 +56,6 @@ plot_deconvolution_violin <- function(deconvolution, actual){
 #' plot_corr_celltype(data, cell_type_filter)
 #' }
 
-
-# TODO: add x==y line (maybe as optional)
 plot_corr_celltype <- function(data, cell_type_filter, add_x_y_line = add_x_y_line){
 
   subs <- dplyr::filter(data, .data$cell_type == cell_type_filter)
@@ -73,6 +87,7 @@ plot_corr_celltype <- function(data, cell_type_filter, add_x_y_line = add_x_y_li
 #' @param deconvolution deconvolution results in long format
 #' @param actual actual fractions in long format
 #' @param add_x_y_line Boolean to specify wether to plot red x == y line
+#' @param remove_missing_celltypes A boolean weather to remove celltypes that are only in one of the datasets
 #'
 #' @return A plot for each cell_type in the datasets
 #' @export
@@ -82,7 +97,23 @@ plot_corr_celltype <- function(data, cell_type_filter, add_x_y_line = add_x_y_li
 #' plot_deconvolution_celltype_corrs(deconvolution, actual)
 #'}
 
-plot_deconvolution_celltype_corrs <- function(deconvolution, actual, add_x_y_line = TRUE){
+plot_deconvolution_celltype_corrs <- function(deconvolution, actual,
+                                              add_x_y_line = TRUE,
+                                              remove_missing_celltypes = TRUE){
+
+  if(remove_missing_celltypes){
+    deconv_only <- setdiff(deconvolution$cell_type, actual$cell_type)
+    actual_only <- setdiff(actual$cell_type, deconvolution$cell_type)
+    diff <- union(deconv_only, actual_only)
+
+    if(length(diff) > 0){
+      print(paste("The following were found in deconvolution only: ", deconv_only))
+      print(paste("The following were found in  actual only: ", actual_only))
+
+      deconvolution <- dplyr::filter(deconvolution, !.data$cell_type %in% diff)
+      actual <- dplyr::filter(actual, !.data$cell_type %in% diff)
+    }
+  }
 
   estimate_v_actual <- dplyr::left_join(deconvolution, actual, by = dplyr::join_by("sample", "cell_type"),
                                  suffix = c("_estimate", "_actual"))
@@ -99,6 +130,7 @@ plot_deconvolution_celltype_corrs <- function(deconvolution, actual, add_x_y_lin
 #' @param actual actual fractions in long format
 #' @param add_x_y_line Boolean to specify wether to plot red x == y line
 #' @param add_metrics Boolean to specify wether to add RMSE and pearsons corrolation
+#' @param remove_missing_celltypes A boolean weather to remove celltypes that are only in one of the datasets
 #'
 #' @return a gggplot2 object
 #' @export
@@ -111,7 +143,22 @@ plot_deconvolution_celltype_corrs <- function(deconvolution, actual, add_x_y_lin
 plot_deconvolution_corrs <- function(deconvolution,
                                      actual,
                                      add_x_y_line = TRUE,
-                                     add_metrics = TRUE) {
+                                     add_metrics = TRUE,
+                                     remove_missing_celltypes = TRUE) {
+  if(remove_missing_celltypes){
+    deconv_only <- setdiff(deconvolution$cell_type, actual$cell_type)
+    actual_only <- setdiff(actual$cell_type, deconvolution$cell_type)
+    diff <- union(deconv_only, actual_only)
+
+    if(length(diff) > 0){
+      print(paste("The following were found in deconvolution only: ", deconv_only))
+      print(paste("The following were found in  actual only: ", actual_only))
+
+      deconvolution <- dplyr::filter(deconvolution, !.data$cell_type %in% diff)
+      actual <- dplyr::filter(actual, !.data$cell_type %in% diff)
+    }
+  }
+
   p <- dplyr::left_join(deconvolution, actual, by = dplyr::join_by("sample", "cell_type"),
                    suffix = c("_estimated", "_actual")) |>
     ggplot2::ggplot(ggplot2::aes(x = .data$proportion_actual, .data$proportion_estimated)) +

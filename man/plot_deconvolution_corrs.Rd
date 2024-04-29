@@ -8,7 +8,8 @@ plot_deconvolution_corrs(
   deconvolution,
   actual,
   add_x_y_line = TRUE,
-  add_metrics = TRUE
+  add_metrics = TRUE,
+  remove_missing_celltypes = TRUE
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ plot_deconvolution_corrs(
 \item{add_x_y_line}{Boolean to specify wether to plot red x == y line}
 
 \item{add_metrics}{Boolean to specify wether to add RMSE and pearsons corrolation}
+
+\item{remove_missing_celltypes}{A boolean weather to remove celltypes that are only in one of the datasets}
 }
 \value{
 a gggplot2 object

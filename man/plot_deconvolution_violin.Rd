@@ -4,12 +4,18 @@
 \alias{plot_deconvolution_violin}
 \title{Plot Violin}
 \usage{
-plot_deconvolution_violin(deconvolution, actual)
+plot_deconvolution_violin(
+  deconvolution,
+  actual,
+  remove_missing_celltypes = TRUE
+)
 }
 \arguments{
 \item{deconvolution}{deconvolution results in long format}
 
 \item{actual}{actual fractions in long format}
+
+\item{remove_missing_celltypes}{A boolean weather to remove celltypes that are only in one of the datasets}
 }
 \value{
 A ggplot2 object
