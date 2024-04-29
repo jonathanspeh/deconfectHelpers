@@ -22,4 +22,5 @@ Imports:
     curl,
     stats,
     Matrix,
-    data.table
+    data.table,
+    ggforce
