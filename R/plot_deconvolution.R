@@ -21,8 +21,8 @@ plot_deconvolution_violin <- function(deconvolution, actual, remove_missing_cell
     diff <- union(deconv_only, actual_only)
 
     if(length(diff) > 0){
-      print(paste("The following were found in deconvolution only: ", deconv_only))
-      print(paste("The following were found in  actual only: ", actual_only))
+      message(paste("The following were found in deconvolution only: ", deconv_only))
+      message(paste("The following were found in  actual only: ", actual_only))
 
       deconvolution <- dplyr::filter(deconvolution, !.data$cell_type %in% diff)
       actual <- dplyr::filter(actual, !.data$cell_type %in% diff)
@@ -72,7 +72,7 @@ plot_corr_celltype <- function(data, cell_type_filter,
   p <- subs |>
     ggplot2::ggplot(ggplot2::aes(x = .data$proportion_actual, y = .data$proportion_estimate)) +
     ggplot2::geom_point() +
-    ggplot2::geom_smooth(method = "lm") +
+    ggplot2::geom_smooth(formula = y ~x, method = "lm") +
     ggplot2::ggtitle(paste(cell_type_filter, append_title)) +
     ggplot2::coord_cartesian(xlim = lim, ylim = lim)
 
@@ -86,7 +86,7 @@ plot_corr_celltype <- function(data, cell_type_filter,
       rmse <- sqrt(mean((subs$proportion_actual - subs$proportion_estimate)^2))
       cors <- stats::cor.test(subs$proportion_actual, subs$proportion_estimate)
       p <- p +
-        ggplot2::annotate("text", label = paste0("RMSE = ", round(rmse, 4), "\nR = ", round(cors$estimate, 2), "\nP =  ", round(cors$p.value, 4)),
+        ggplot2::annotate("text", label = paste0("RMSE = ", round(rmse, 4), "\nR = ", round(cors$estimate, 2), "\nP =  ", cors$p.value, 4),
                           x = min(subs$proportion_estimate),
                           y = max(subs$proportion_actual),
                           hjust = 0,
@@ -126,8 +126,8 @@ plot_deconvolution_celltype_corrs <- function(deconvolution, actual,
     diff <- union(deconv_only, actual_only)
 
     if(length(diff) > 0){
-      print(paste("The following were found in deconvolution only: ", deconv_only))
-      print(paste("The following were found in  actual only: ", actual_only))
+      message(paste("The following were found in deconvolution only: ", deconv_only))
+      message(paste("The following were found in  actual only: ", actual_only))
 
       deconvolution <- dplyr::filter(deconvolution, !.data$cell_type %in% diff)
       actual <- dplyr::filter(actual, !.data$cell_type %in% diff)
@@ -171,8 +171,8 @@ plot_deconvolution_corrs <- function(deconvolution,
     diff <- union(deconv_only, actual_only)
 
     if(length(diff) > 0){
-      print(paste("The following were found in deconvolution only: ", deconv_only))
-      print(paste("The following were found in  actual only: ", actual_only))
+      message(paste("The following were found in deconvolution only: ", deconv_only))
+      message(paste("The following were found in  actual only: ", actual_only))
 
       deconvolution <- dplyr::filter(deconvolution, !.data$cell_type %in% diff)
       actual <- dplyr::filter(actual, !.data$cell_type %in% diff)
@@ -183,7 +183,7 @@ plot_deconvolution_corrs <- function(deconvolution,
                    suffix = c("_estimated", "_actual")) |>
     ggplot2::ggplot(ggplot2::aes(x = .data$proportion_actual, .data$proportion_estimated)) +
     ggplot2::geom_point(ggplot2::aes(colour = .data$cell_type)) +
-    ggplot2::geom_smooth(method = "lm")
+    ggplot2::geom_smooth(formula = y ~ x, method = "lm")
 
   if(add_x_y_line) {
     p <- p +

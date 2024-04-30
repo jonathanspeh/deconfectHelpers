@@ -15,6 +15,12 @@ test_that("plots without error", {
   expect_no_error(plot_deconvolution_corrs(testdata, testdata_not_equal))
   expect_no_error(plot_deconvolution_violin(testdata, testdata_not_equal))
   expect_no_error(plot_deconvolution_celltype_corrs(testdata, testdata_not_equal))
+  expect_message(plot_deconvolution_celltype_corrs(testdata, testdata_not_equal),
+                 regexp = "The following")
+  expect_message(plot_deconvolution_corrs(testdata, testdata_not_equal),
+                 regexp = "The following")
+  expect_message(plot_deconvolution_violin(testdata, testdata_not_equal),
+                 regexp = "The following")
 
 })
 
