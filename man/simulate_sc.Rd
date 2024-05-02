@@ -8,6 +8,7 @@ simulate_sc(
   n_genes = 10000,
   n_cells_est = 300,
   make_signature = TRUE,
+  signature_base = "cpm",
   signature_path = "./signature.csv",
   lambdas = NULL
 )
@@ -19,12 +20,14 @@ simulate_sc(
 
 \item{make_signature}{boolean weather to make a signature and write it to disk}
 
+\item{signature_base}{Must be either cpm or counts to specify what to use to create the signature}
+
 \item{signature_path}{path for signature matrix}
 
 \item{lambdas}{either NULL for creating random lambdas or a numeric vector of length 6 to specify them}
 }
 \value{
-a list containing the counts and annotaiton
+a list containing the counts, cpm and annotation
 }
 \description{
 Helper to create a simulated sc-set including annotation

@@ -3,17 +3,18 @@
 #' @param n_genes number of genes in dataset
 #' @param n_cells_est estimated number of cells, will only be exact if multiple of six
 #' @param make_signature boolean weather to make a signature and write it to disk
+#' @param signature_base Must be either cpm or counts to specify what to use to create the signature
 #' @param signature_path path for signature matrix
 #' @param lambdas either NULL for creating random lambdas or a numeric vector of length 6 to specify them
 #'
-#' @return a list containing the counts and annotaiton
+#' @return a list containing the counts, cpm and annotation
 #' @export
 #'
 #' @examples
 #' simulate_sc(n_genes = 100, n_cells_est = 30, make_signature = FALSE)
 
 simulate_sc <- function(n_genes = 10000, n_cells_est = 300,
-                        make_signature = TRUE, signature_path = "./signature.csv",
+                        make_signature = TRUE, signature_base = "count", signature_path = "./signature.csv",
                         lambdas = NULL){
   n1 <- round(n_cells_est/6)
   n2 <- round(n_cells_est/6)
@@ -38,8 +39,12 @@ simulate_sc <- function(n_genes = 10000, n_cells_est = 300,
     replicate(n5, rpois(n_genes, lambdas[5])),
     replicate(n6, rpois(n_genes, lambdas[6]))), sparse = TRUE)
 
+  cpms <- Matrix::t(Matrix::t(counts)*1e6 / Matrix::colSums(counts))
+
   colnames(counts) <- paste0("cell_", rep(1:n_cells_actual))
   rownames(counts) <- paste0("gene_", rep(1:n_genes))
+  colnames(cpms) <- paste0("cell_", rep(1:n_cells_actual))
+  rownames(cpms) <- paste0("gene_", rep(1:n_genes))
 
   annotation <- data.frame(
     "ID" = paste0("cell_", rep(1:n_cells_actual)),
@@ -52,19 +57,26 @@ simulate_sc <- function(n_genes = 10000, n_cells_est = 300,
       rep("Monocytes", n6)))
 
   if(make_signature){
-
-    signature <- dplyr::as_tibble(as.matrix(counts), rownames = "gene") |>
+    if(signature_base == "count"){
+      signature <- dplyr::as_tibble(as.matrix(counts), rownames = "gene") |>
+        tidyr::pivot_longer(!"gene") |>
+        dplyr::left_join(annotation, by = dplyr::join_by("name" == "ID")) |>
+        dplyr::summarise(mean = mean(.data$value), .by = c("gene", "cell_type")) |>
+        tidyr::pivot_wider(names_from = "cell_type", values_from = "mean")
+  } else if(signature_base == "cpm") {
+    signature <- dplyr::as_tibble(as.matrix(cpms), rownames = "gene") |>
       tidyr::pivot_longer(!"gene") |>
       dplyr::left_join(annotation, by = dplyr::join_by("name" == "ID")) |>
       dplyr::summarise(mean = mean(.data$value), .by = c("gene", "cell_type")) |>
       tidyr::pivot_wider(names_from = "cell_type", values_from = "mean")
 
-
+  } else {
+    stop("signature_base must be either count or cpm")
+  }
     colnames(signature)[1] <- "index"
-
     data.table::fwrite(signature, signature_path)
   }
-  return(list(counts = counts, annotation = annotation))
+  return(list(counts = counts, cpms = cpms, annotation = annotation))
 }
 
 
