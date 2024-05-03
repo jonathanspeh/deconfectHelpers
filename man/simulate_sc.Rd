@@ -8,7 +8,7 @@ simulate_sc(
   n_genes = 10000,
   n_cells_est = 300,
   make_signature = TRUE,
-  signature_base = "cpm",
+  signature_base = "count",
   signature_path = "./signature.csv",
   lambdas = NULL
 )
