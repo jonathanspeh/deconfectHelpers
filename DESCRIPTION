@@ -23,4 +23,8 @@ Imports:
     stats,
     Matrix,
     data.table,
-    ggforce
+    ggforce,
+    MASS
+Depends: 
+    R (>= 2.10)
+LazyData: true
