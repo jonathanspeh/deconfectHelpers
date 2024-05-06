@@ -54,7 +54,7 @@ fix_cell_names <- function(cell_names){
   Basophils <- c("Baso", "Basophile granulocyte")
   conventional_DCs <- c("conventional dendritic", "dendritic cells conv", "cDC",
                         "conventional dc","conventional_dc", "myeloid dendritic", "mDCs")
-  plasmacytoid_DCs <- c("plasmacytoid dendritic", "pDC", "interferon-producing")
+  plasmacytoid_DCs <- c("plasmacytoid dendritic", "pDC", "interferon-producing", "plasmacytoid")
   NK_cells <- c("natural killer cells", "NK cell", "NK_cell", "NK")
   T_gd_cells <- c("T.gd", "Tgd", "T gamma", "T_gamma")
 
