@@ -29,15 +29,19 @@ plot_deconvolution_violin <- function(deconvolution, actual, remove_missing_cell
     }
   }
 
+  both <- intersect(deconvolution$cell_type, actual$cell_type)
   deconvolution <- dplyr::mutate(deconvolution, flag = "estimated")
   actual <- dplyr::mutate(actual, flag = "actual")
   rbind(deconvolution, actual) |>
     dplyr::mutate(group = paste(.data$cell_type, .data$flag, sep = "_")) |>
+    dplyr::mutate(facet = dplyr::case_when(.data$cell_type %in% both ~ "Both sets",
+                                    TRUE ~ "Only one set")) |>
       ggplot2::ggplot(ggplot2::aes(x = .data$cell_type, y = .data$proportion, fill = .data$flag, colour = .data$flag)) +
     ggplot2::geom_violin(alpha = 0.9) +
     ggforce::geom_sina(colour = "black", alpha = 0.4) +
-    ggplot2::scale_x_discrete(guide = ggplot2::guide_axis(n.dodge = 2))
-  }
+    ggplot2::scale_x_discrete(guide = ggplot2::guide_axis(n.dodge = 2)) +
+    ggplot2::facet_wrap(~.data$facet, scales = "free_x", ncol = 1)
+    }
 
 
 
