@@ -1,6 +1,7 @@
 .onLoad <- function(libname, pkgname){
               if(!reticulate::condaenv_exists("deconvolute-r")){
-                reticulate::conda_create("deconvolute-r", "python==3.8")
+                message("Createing deconvolute-r conda environment and installing cellanneal and its dependencies")
+                reticulate::conda_create("deconvolute-r", "python==3.10", channel = "anaconda")
                 reticulate::conda_install("deconvolute-r", c("numpy==1.24", "scipy==1.9",
                                                              "matplotlib==3.7", "pandas==1.5",
                                                              "seaborn==0.12"))
@@ -15,12 +16,11 @@
                 file.remove("cellanneal.zip")
                 unlink("cellanneal-master", recursive = TRUE)
               }
-            reticulate::use_condaenv("deconvolute-r")
+            reticulate::use_condaenv(condaenv = "deconvolute-r")
             reticulate::source_python(
               system.file("python/run_cellanneal.py",
                           package = "deconfectHelpers"),
               envir = deconv_env)}
-
 
 
 
