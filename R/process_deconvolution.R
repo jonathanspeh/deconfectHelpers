@@ -30,6 +30,27 @@ pivot_longer_deconvolution <- function(cell_mix, fix_cell_names = TRUE){
 }
 
 
+#' Transpose the results of immunedeconv and turns into long format
+#'
+#' @param cell_mix The results of a immunedeconv deconvolution. Must contain columns for cell type and s row for each sample
+#' @param fix_cell_names A boolean to specify if the function should attempt to fix the cell name
+#'
+#' @return A dataframe containing sample, cell_type and proportions
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' process_immunedeconv(mixture, fix_cell_names = TRUE)
+#' }
+
+process_immunedeconv <- function(cell_mix, fix_cell_names = TRUE){
+  cell_mix_t <- t(cell_mix[-1])
+  colnames(cell_mix_t) <- cell_mix$cell_type
+  pivot_longer_deconvolution(dplyr::as_tibble(cell_mix_t, rownames = "sample"),
+                             fix_cell_names = fix_cell_names)
+}
+
+
 
 
 #' Funktion to unify the names of immunecells
@@ -70,9 +91,9 @@ fix_cell_names <- function(cell_names){
     grepl(paste(T_cells_CD4, collapse = "|"), cell_names, ignore.case = TRUE) ~ "T_cells_CD4",
     grepl(paste(T_cells_CD8, collapse = "|"), cell_names, ignore.case = TRUE) ~ "T_cells_CD8",
     grepl(paste(T_regs, collapse = "|"), cell_names, ignore.case = TRUE) ~ "T_regs",
-    grepl(paste(Monocytes, collapse = "|"), cell_names, ignore.case = TRUE) ~ "Monocytes",
-    grepl(paste(Basophils, collapse = "|"), cell_names, ignore.case = TRUE) ~ "Basophils",
-    grepl(paste(Neutrophils, collapse = "|"), cell_names, ignore.case = TRUE) ~ "Neutrophils",
+    grepl(paste(Monocytes, collapse = "|"), cell_names, ignore.case = TRUE) ~ "monocytes",
+    grepl(paste(Basophils, collapse = "|"), cell_names, ignore.case = TRUE) ~ "basophils",
+    grepl(paste(Neutrophils, collapse = "|"), cell_names, ignore.case = TRUE) ~ "neutrophils",
     grepl(paste(conventional_DCs, collapse = "|"), cell_names, ignore.case = TRUE) ~ "conventional_DCs",
     grepl(paste(plasmacytoid_DCs, collapse = "|"), cell_names, ignore.case = TRUE) ~ "plasmacytoid_DCs",
     grepl(paste(NK_cells, collapse = "|"), cell_names, ignore.case = TRUE) ~ "NK_cells",
@@ -81,23 +102,3 @@ fix_cell_names <- function(cell_names){
   cell_names_actual
   }
 
-
-#' Transpose the results of immunedeconv and turns into long format
-#'
-#' @param cell_mix The results of a immunedeconv deconvolution. Must contain columns for cell type and each sample
-#' @param fix_cell_names A boolean to specify if the function should attempt to fix the cell name
-#'
-#' @return A dataframe containing sample, cell_type and proportopns
-#' @export
-#'
-#' @examples
-#' \dontrun{
-#' process_immunedeconv(mixture, fix_cell_names = TRUE)
-#' }
-
-process_immunedeconv <- function(cell_mix, fix_cell_names = TRUE){
-  cell_mix_t <- t(cell_mix[-1])
-  colnames(cell_mix_t) <- cell_mix$cell_type
-  pivot_longer_deconvolution(dplyr::as_tibble(cell_mix_t, rownames = "sample"),
-                             fix_cell_names = fix_cell_names)
-}

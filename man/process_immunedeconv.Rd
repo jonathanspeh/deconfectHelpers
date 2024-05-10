@@ -7,12 +7,12 @@
 process_immunedeconv(cell_mix, fix_cell_names = TRUE)
 }
 \arguments{
-\item{cell_mix}{The results of a immunedeconv deconvolution. Must contain columns for cell type and each sample}
+\item{cell_mix}{The results of a immunedeconv deconvolution. Must contain columns for cell type and s row for each sample}
 
 \item{fix_cell_names}{A boolean to specify if the function should attempt to fix the cell name}
 }
 \value{
-A dataframe containing sample, cell_type and proportopns
+A dataframe containing sample, cell_type and proportions
 }
 \description{
 Transpose the results of immunedeconv and turns into long format
