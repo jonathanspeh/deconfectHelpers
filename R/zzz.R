@@ -1,6 +1,6 @@
-.onLoad <- function(libname, pkgname){
+.onAttach <- function(libname, pkgname){
               if(!reticulate::condaenv_exists("deconvolute-r")){
-                message("Createing deconvolute-r conda environment and installing cellanneal and its dependencies")
+                packageStartupMessage("Creating deconvolute-r conda environment and installing cellanneal and its dependencies")
                 reticulate::conda_create("deconvolute-r", "python==3.10", channel = "anaconda")
                 reticulate::conda_install("deconvolute-r", c("numpy==1.24", "scipy==1.9",
                                                              "matplotlib==3.7", "pandas==1.5",
