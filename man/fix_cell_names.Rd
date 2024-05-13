@@ -19,4 +19,5 @@ Funktion for method-specific cell-type reannotation
 }
 \examples{
 fix_cell_names(c("NK","B.Naive", "B.Memory"), method = "abis")
+
 }

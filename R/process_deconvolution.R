@@ -53,6 +53,10 @@ process_immunedeconv <- function(cell_mix){
 #'
 #' @return A vector of standardised cell names
 #'
+#' @export
+#' @examples
+#' fix_cell_names(c("NK","B.Naive", "B.Memory"), method = "abis")
+#'
 fix_cell_names_legacy <- function(cell_names){
   stopifnot("cell_names must be character vector" = is.character(cell_names))
 
@@ -84,8 +88,8 @@ fix_cell_names_legacy <- function(cell_names){
     grepl(paste(Monocytes, collapse = "|"), cell_names, ignore.case = TRUE) ~ "monocytes",
     grepl(paste(Basophils, collapse = "|"), cell_names, ignore.case = TRUE) ~ "basophils",
     grepl(paste(Neutrophils, collapse = "|"), cell_names, ignore.case = TRUE) ~ "neutrophils",
-    grepl(paste(conventional_DCs, collapse = "|"), cell_names, ignore.case = TRUE) ~ "conventional_DCs",
-    grepl(paste(plasmacytoid_DCs, collapse = "|"), cell_names, ignore.case = TRUE) ~ "plasmacytoid_DCs",
+    grepl(paste(conventional_DCs, collapse = "|"), cell_names, ignore.case = TRUE) ~ "conventional_dendritic_cells",
+    grepl(paste(plasmacytoid_DCs, collapse = "|"), cell_names, ignore.case = TRUE) ~ "lymphoid_dendritic_cells",
     grepl(paste(NK_cells, collapse = "|"), cell_names, ignore.case = TRUE) ~ "NK_cells",
     grepl(paste(T_gd_cells, collapse = "|"), cell_names, ignore.case = TRUE) ~ "T_gd_cells",
     .default =  paste("Other, original was: ", cell_names))
@@ -104,13 +108,15 @@ fix_cell_names_legacy <- function(cell_names){
 #'
 #' @examples
 #' fix_cell_names(c("NK","B.Naive", "B.Memory"), method = "abis")
+#'
 fix_cell_names <- function(cell_names, method){
   if(!method%in%cell_types$method) stop(paste0("Method must be one of: ", paste(unique(cell_types$method), collapse = ", ")))
   cell_types <- dplyr::filter(cell_types, method == method)
-  cell_types$general_name[match(cell_names, cell_types$method_name)]
+  newnames <- cell_types$general_name[match(cell_names, cell_types$method_name)]
+  # If there are T_regs and T_cells_CD4 in dataset, T_cells_CD4 has the be renamed to non_regs since T_cell_CD4 is parent of T_reg
+  if("T_regs" %in% newnames & "T_cells_CD4" %in% newnames) newnames[newnames == "T_cells_CD4"] <- "T_cells_CD4_non_regs"
+  newnames
 }
-
-
 
 
 

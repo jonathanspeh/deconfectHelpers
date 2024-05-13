@@ -13,7 +13,7 @@ test_that("can standardise celltypes with legacy function", {
 
           standardised <- c("B_cells","B_cells","B_cells", "B_cells",
                             "T_cells_CD4", "T_cells_CD4", "T_cells_CD8", "T_cells_CD8",
-                            "neutrophils", "monocytes", "conventional_DCs")
+                            "neutrophils", "monocytes", "conventional_dendritic_cells")
           expect_equal(fix_cell_names_legacy(cells), standardised) })
 
 

@@ -15,3 +15,7 @@ A vector of standardised cell names
 \description{
 Funktion to unify the names of immunecells. Should be replaced
 }
+\examples{
+fix_cell_names(c("NK","B.Naive", "B.Memory"), method = "abis")
+
+}

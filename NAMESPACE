@@ -2,6 +2,7 @@
 
 export(find_suspicious_names)
 export(fix_cell_names)
+export(fix_cell_names_legacy)
 export(get_rmse)
 export(pivot_longer_deconvolution)
 export(plot_deconvolution_celltype_corrs)
