@@ -4,12 +4,10 @@
 \alias{pivot_longer_deconvolution}
 \title{Turn results of deconvolution in long format}
 \usage{
-pivot_longer_deconvolution(cell_mix, fix_cell_names = TRUE)
+pivot_longer_deconvolution(cell_mix)
 }
 \arguments{
 \item{cell_mix}{A dataframe containing a sample column and one column for each cell type}
-
-\item{fix_cell_names}{A boolean to specify if the function should attempt to fix the cell types}
 }
 \value{
 deconvolution in long format
@@ -19,6 +17,6 @@ Turn results of deconvolution in long format
 }
 \examples{
 \dontrun{
-pivot_longer_deconvolution(mixture, fix_cell_names = TRUE)
+pivot_longer_deconvolution(mixture)
 }
 }

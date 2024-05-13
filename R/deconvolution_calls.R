@@ -13,7 +13,7 @@
 #'}
 
 run_abis <- function(mixture, use_build_in_signature = TRUE, custom_signature = NULL){
-  if(use_build_in_signature) utils::data(deconfectHelpers::abis_signature) else abis_signature = custom_signature
+  if(!use_build_in_signature)  abis_signature = custom_signature
 
   genes <- intersect(rownames(mixture), rownames(abis_signature))
 

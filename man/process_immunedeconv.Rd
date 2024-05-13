@@ -4,12 +4,10 @@
 \alias{process_immunedeconv}
 \title{Transpose the results of immunedeconv and turns into long format}
 \usage{
-process_immunedeconv(cell_mix, fix_cell_names = TRUE)
+process_immunedeconv(cell_mix)
 }
 \arguments{
 \item{cell_mix}{The results of a immunedeconv deconvolution. Must contain columns for cell type and s row for each sample}
-
-\item{fix_cell_names}{A boolean to specify if the function should attempt to fix the cell name}
 }
 \value{
 A dataframe containing sample, cell_type and proportions
@@ -19,6 +17,6 @@ Transpose the results of immunedeconv and turns into long format
 }
 \examples{
 \dontrun{
-process_immunedeconv(mixture, fix_cell_names = TRUE)
+process_immunedeconv(mixture)
 }
 }

@@ -2,20 +2,21 @@
 % Please edit documentation in R/process_deconvolution.R
 \name{fix_cell_names}
 \alias{fix_cell_names}
-\title{Funktion to unify the names of immunecells}
+\title{Funktion for method-specific cell-type reannotation}
 \usage{
-fix_cell_names(cell_names)
+fix_cell_names(cell_names, method)
 }
 \arguments{
-\item{cell_names}{A vector of immune cell names}
+\item{cell_names}{A character vector containin cell_types}
+
+\item{method}{A character specifying the deconovlution method that has been used}
 }
 \value{
-A vector of standardised cell names
+A Vector containing the generalised Cell-Types or NA for unknown types
 }
 \description{
-Funktion to unify the names of immunecells
+Funktion for method-specific cell-type reannotation
 }
 \examples{
-fix_cell_names(c("bcells", "T cells CD4", "T reg"))
-
+fix_cell_names(c("NK","B.Naive", "B.Memory"), method = "abis")
 }
