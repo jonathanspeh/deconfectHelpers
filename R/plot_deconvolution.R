@@ -40,7 +40,7 @@ plot_deconvolution_violin <- function(deconvolution, actual, remove_missing_cell
     ggplot2::geom_violin(alpha = 0.9) +
     ggforce::geom_sina(colour = "black", alpha = 0.4) +
     ggplot2::scale_x_discrete(guide = ggplot2::guide_axis(n.dodge = 2)) +
-    ggplot2::facet_wrap(~.data$facet, scales = "free_x", ncol = 1)
+    ggplot2::facet_wrap(~.data$facet, scales = "free", ncol = 1)
     }
 
 
