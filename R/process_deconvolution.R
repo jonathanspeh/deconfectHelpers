@@ -114,7 +114,7 @@ fix_cell_names <- function(cell_names, method){
   cell_types <- dplyr::filter(cell_types, method == method)
   newnames <- cell_types$general_name[match(cell_names, cell_types$method_name)]
   # If there are T_regs and T_cells_CD4 in dataset, T_cells_CD4 has the be renamed to non_regs since T_cell_CD4 is parent of T_reg
-  if("T_regs" %in% newnames & "T_cells_CD4" %in% newnames) newnames[newnames == "T_cells_CD4"] <- "T_cells_CD4_non_regs"
+  if("T_regs" %in% newnames & "T_cells_CD4" %in% newnames) newnames[newnames == "T_cells_CD4"] <- "T_CD4_non_regs"
   newnames
 }
 
