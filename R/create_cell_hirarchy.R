@@ -6,7 +6,7 @@ cell_list <- list(
   immune_cells = c("myeloid_cells", "lymphoid_cells"),
   ### Myeloid
   myeloid_cells = c("conventional_dendritic_cells", "monocytes_macrophages",
-                    "granulocytes",  "mast_cells"),
+                    "granulocytes",  "mast_cells", "progenitor_cells"),
   mast_cells = c("mast_cells_resting", "mast_cells_activated"),
   conventional_dendritic_cells = c("conventional_dendritic_cells_resting", "conventional_dendritic_cells_activated"),
   monocytes_macrophages = c("monocytes", "macrophages"),
@@ -17,7 +17,7 @@ cell_list <- list(
   lymphoid_cells = c("B_cells", "T_cells", "NK_cells", "lymphoid_dendritic_cells"),
   NK_cells = c("NK_cells_resting", "NK_cells_activated"),
   B_cells = c("B_cells_naive", "B_cells_memory", "Plasma_cells", "plasmablasts"),
-  T_cells = c("T_cells_CD4", "T_cells_CD8", "T_cells_gd", "NKT_cells", "MAIT"),
+  T_cells = c("T_cells_CD4", "T_cells_CD8", "T_cells_gd", "NKT_cells", "MAIT", "T_cells_DN"),
   T_cells_CD4 = c("T_regs", "T_CD4_non_regs"),
   T_CD4_non_regs =  c("Th1", "Th2", "Th17", "T_cells_FH", "T_cells_CD4_naive", "T_cells_CD4_memory"),
   T_cells_CD4_memory = c("T_cells_CD4_memory_resting", "T_cells_CD4_memory_activated"),
