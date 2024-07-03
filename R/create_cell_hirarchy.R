@@ -2,7 +2,7 @@
 
 cell_list <- list(
   # Top
-  cells = c("immune_cells", "non_immune_cells", "uncharacterised"),
+  cells = c("immune_cells", "non_immune_cells", "uncharacterised", "progenitor_cells"),
   immune_cells = c("myeloid_cells", "lymphoid_cells"),
   ### Myeloid
   myeloid_cells = c("conventional_dendritic_cells", "monocytes_macrophages",
@@ -15,14 +15,31 @@ cell_list <- list(
   granulocytes = c("neutrophils", "basophils", "eosinophils"),
   ### Lymphoid
   lymphoid_cells = c("B_cells", "T_cells", "NK_cells", "lymphoid_dendritic_cells"),
-  NK_cells = c("NK_cells_resting", "NK_cells_activated"),
-  B_cells = c("B_cells_naive", "B_cells_memory", "Plasma_cells", "plasmablasts"),
+  NK_cells = c("NK_cells_resting", "NK_cells_activated", "NK_CD56", "NK_cells_proliferating"),
+  NK_CD56 = c("NK_CD56bright", "NK_CD56dim_CD57+", "NK_CD56dim_CD57-", "NK_CD56dim_CD57int", "NK_CD56dim_CD57low"),
+  B_cells = c("B_cells_naive", "B_cells_memory", "Plasma_cells", "plasmablasts", "B_cells_activated", "B_cells_CD5", "B_cells_transitional"),
+  ### Bcells
+  B_cells_memory = c("B_cells_atypical_memory", "B_cells_non_switched_memory", "B_cells_switched_memory"),
+  B_cells_naive = c("B_cells_naive_IFN"),
+  ### T cells
   T_cells = c("T_cells_CD4", "T_cells_CD8", "T_cells_gd", "NKT_cells", "MAIT", "T_cells_DN"),
+  ##### CD4
   T_cells_CD4 = c("T_regs", "T_CD4_non_regs"),
-  T_CD4_non_regs =  c("Th1", "Th2", "Th17", "T_cells_FH", "T_cells_CD4_naive", "T_cells_CD4_memory"),
-  T_cells_CD4_memory = c("T_cells_CD4_memory_resting", "T_cells_CD4_memory_activated"),
-  T_cells_CD8 = c("T_cells_CD8_naive", "T_cells_CD8_memory")
-)
+  T_CD4_non_regs =  c("T_cells_CD4_helper", "T_cells_CD4_naive", "T_cells_CD4_memory", "T_cells_CD4_terminal_effector"),
+  T_cells_CD4_helper = c("Th1", "Th1/Th17", "Th2", "Th17", "Th22", "T_cells_FH"),
+  T_cells_CD4_naive = c("T_cells_CD4_naive_IFN"),
+  T_cells_CD4_memory = c("T_cells_CD4_memory_resting", "T_cells_CD4_memory_activated", "T_cells_CD4_memory_exhausted", "T_cells_CD4_memory_HLA-DR+", "T_cells_CD4_terminal_effector_memory"),
+  T_regs = c("T_regs_KLRB_RORC", "T_regs_cytotoxic", "T_regs_memory", "T_regs_naive"),
+  ##### CD8
+  T_cells_CD8 = c("T_cells_CD8_naive", "T_cells_CD8_memory", "NKT_cells", "T_cells_CD8_HLA-DR+", "T_cells_CD8_proliferative"),
+  T_cells_CD8_naive = c("T_cells_CD8_naive_IFN"),
+  T_cells_CD8_memory = c("T_cells_CD8_central_memory", "T_cells_CD8_terminal_effector_memory", "T_cells_CD8_memory_KLRC2+", "T_cells_CD8_tissue_resident_memory"),
+  T_cells_CD8_central_memory = c("T_cells_CD8_central_memory_CCR4+", "T_cells_CD8_central_memory_CCR4-", "T_cells_CD8_central_memory_GZMB+", "T_cells_CD8_central_memory_GZMK+"),
+  ##### gd
+  T_cells_gd = c("T_cells_gd_naive", "T_cells_gd_VD1", "T_cells_gd_VD2"),
+  T_cells_gd_VD1 = c("T_cells_gd_VD1_GZMB+", "T_cells_gd_VD1_GZMK+"),
+  T_cells_gd_VD2 = c("T_cells_gd_VD2_GZMB+", "T_cells_gd_VD2_GZMK+")
+  )
 
 cell_df <- dplyr::tibble(parent = names(cell_list), child = cell_list) |>
   tidyr::unnest_longer(child)
