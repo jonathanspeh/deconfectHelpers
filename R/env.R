@@ -1,4 +1,7 @@
-deconv_env <- rlang::env()
+# deconv_env <- rlang::env()
+
+
+
 
 #' run_cellanneal_r
 #'
@@ -23,11 +26,11 @@ deconv_env <- rlang::env()
 #' run_cellanneal_r(path_to_signature, path_to_mixture)
 #'}
 
-run_cellanneal_r <- function(signature, mixture, disp_min = 0.5, bulk_min = 1e-5, bulk_max = 0.01, maxiter = 1000){
-  #reticulate::use_condaenv("cellanneal")
-  all_mix <- deconv_env$run_cellanneal(signature, mixture, disp_min = disp_min,
-                            bulk_min = bulk_min, bulk_max = bulk_max,
-                            maxiter = maxiter)
-  sample <- rownames(all_mix)
-  cbind(sample, as.data.frame(all_mix, row.names = NULL))
-}
+# run_cellanneal_r <- function(signature, mixture, disp_min = 0.5, bulk_min = 1e-5, bulk_max = 0.01, maxiter = 1000){
+#   #reticulate::use_condaenv("cellanneal")
+#   all_mix <- deconv_env$run_cellanneal(signature, mixture, disp_min = disp_min,
+#                             bulk_min = bulk_min, bulk_max = bulk_max,
+#                             maxiter = maxiter)
+#   sample <- rownames(all_mix)
+#   cbind(sample, as.data.frame(all_mix, row.names = NULL))
+# }
