@@ -1,0 +1,67 @@
+method;method_name;general_name
+quantiseq;B cell;B_cells
+quantiseq;Macrophage M1;macrophages_M1
+quantiseq;Macrophage M2;macrophages_M2
+quantiseq;Monocyte;monocytes
+quantiseq;Neutrophil;neutrophils
+quantiseq;NK cell;NK_cells
+quantiseq;T cell CD4+ (non-regulatory);T_CD4_non_regs
+quantiseq;T cell CD8+;T_cells_CD8
+quantiseq;T cell regulatory (Tregs);T_regs
+quantiseq;Myeloid dendritic cell;conventional_dendritic_cells
+quantiseq;uncharacterized cell;uncharacterised
+epic;B cell;B_cells
+epic;T cell CD4+;T_cells_CD4
+epic;T cell CD8+;T_cells_CD8
+epic;Monocyte;monocytes
+epic;NK cell;NK_cells
+epic;Neutrophil;neutrophils
+epic;uncharacterized cell;uncharacterised
+abis;Monocytes.C;monocytes_conventional
+abis;NK;NK_cells
+abis;T.CD8.Memory;T_cells_CD8_memory
+abis;T.CD4.Naive;T_cells_CD4_naive
+abis;T.CD8.Naive;T_cells_CD8_naive
+abis;B.Naive;B_cells_naive
+abis;T.CD4.Memory;T_cells_CD4_memory
+abis;MAIT;MAIT
+abis;T.gd.Vd2;T_cells_gd
+abis;Neutrophils.LD;neutrophils
+abis;T.gd.non.Vd2;T_cells_gd
+abis;Basophils.LD;basophils
+abis;Monocytes.NC.I;monocytes_non_conventional
+abis;B.Memory;B_cells_memory
+abis;mDCs;conventional_dendritic_cells
+abis;pDCs;lymphoid_dendritic_cells
+abis;Plasmablasts;plasmablasts
+cibersort;B.cells.naive;B_cells_naive
+cibersort;B.cells.memory;B_cells_memory
+cibersort;Plasma.cells;Plasma_cells
+cibersort;T.cells.CD8;T_cells_CD8
+cibersort;T.cells.CD4.naive;T_cells_CD4_naive
+cibersort;T.cells.CD4.memory.resting;T_cells_CD4_memory_resting
+cibersort;T.cells.CD4.memory.activated;T_cells_CD4_memory_activated
+cibersort;T.cells.follicular.helper;T_cells_FH
+cibersort;T.cells.regulatory..Tregs.;T_regs
+cibersort;T.cells.gamma.delta;T_cells_gd
+cibersort;NK.cells.resting;NK_cells_resting
+cibersort;NK.cells.activated;NK_cells_activated
+cibersort;Monocytes;monocytes
+cibersort;Macrophages.M0;macrophages_M0
+cibersort;Macrophages.M1;macrophages_M1
+cibersort;Macrophages.M2;macrophages_M2
+cibersort;Dendritic.cells.resting;conventional_dendritic_cells_resting
+cibersort;Dendritic.cells.activated;conventional_dendritic_cells_activated
+cibersort;Mast.cells.resting;mast_cells_resting
+cibersort;Mast.cells.activated;mast_cells_activated
+cibersort;Eosinophils;eosinophils
+cibersort;Neutrophils;neutrophils
+terekhova_coarse;NK cells;NK_cells
+terekhova_coarse;B cells;B_cells
+terekhova_coarse;CD4+ T cells;T_cells_CD4
+terekhova_coarse;Myeloid cells;myeloid_cells
+terekhova_coarse;TRAV1-2- CD8+ T cells;T_cells_CD8
+terekhova_coarse;gd T cells;T_cells_gd
+terekhova_coarse;MAIT cells;MAIT
+terekhova_coarse;DN T cells;T_cells_DN
+terekhova_coarse;Progenitor cells;progenitor_cells
