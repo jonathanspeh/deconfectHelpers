@@ -34,6 +34,23 @@ abis;B.Memory;B_cells_memory
 abis;mDCs;conventional_dendritic_cells
 abis;pDCs;lymphoid_dendritic_cells
 abis;Plasmablasts;plasmablasts
+abis;Monocyte conventional;monocytes_conventional
+abis;NK cell;NK_cells
+abis;T cell CD8+ memory;T_cells_CD8_memory
+abis;T cell CD4+ naive;T_cells_CD4_naive
+abis;T cell CD8+ naive;T_cells_CD8_naive
+abis;B cell niave;B_cells_naive
+abis;T cell CD4+ memory;T_cells_CD4_memory
+abis;T cell MAIT;MAIT
+abis;T cell gamma delta VD2;T_cells_gd_VD2
+abis;Neutrophil;neutrophils
+abis;T cell gamma delta non-VD2;T_cells_gd_non-VD2
+abis;Basophil;basophils
+abis;Monocyte non-conventional;monocytes_non_conventional
+abis;B cell memory;B_cells_memory
+abis;Myeloid dendritic cell;conventional_dendritic_cells
+abis;Plasmacytoid dendritic cell;lymphoid_dendritic_cells
+abis;B cell plasma immature;Plasma_cells_immature
 cibersort;B.cells.naive;B_cells_naive
 cibersort;B.cells.memory;B_cells_memory
 cibersort;Plasma.cells;Plasma_cells
