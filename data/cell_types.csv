@@ -39,7 +39,7 @@ abis;NK cell;NK_cells
 abis;T cell CD8+ memory;T_cells_CD8_memory
 abis;T cell CD4+ naive;T_cells_CD4_naive
 abis;T cell CD8+ naive;T_cells_CD8_naive
-abis;B cell niave;B_cells_naive
+abis;B cell naive;B_cells_naive
 abis;T cell CD4+ memory;T_cells_CD4_memory
 abis;T cell MAIT;MAIT
 abis;T cell gamma delta VD2;T_cells_gd_VD2

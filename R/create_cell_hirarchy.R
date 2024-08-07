@@ -6,7 +6,7 @@ cell_list <- list(
   immune_cells = c("myeloid_cells", "lymphoid_cells"),
   ### Myeloid
   myeloid_cells = c("conventional_dendritic_cells", "monocytes_macrophages",
-                    "granulocytes",  "mast_cells", "progenitor_cells"),
+                    "granulocytes",  "mast_cells", "myeloid_progenitor_cells"),
   mast_cells = c("mast_cells_resting", "mast_cells_activated"),
   conventional_dendritic_cells = c("conventional_dendritic_cells_resting", "conventional_dendritic_cells_activated"),
   monocytes_macrophages = c("monocytes", "macrophages"),
@@ -31,7 +31,7 @@ cell_list <- list(
   T_cells_CD4_memory = c("T_cells_CD4_memory_resting", "T_cells_CD4_memory_activated", "T_cells_CD4_memory_exhausted", "T_cells_CD4_memory_HLA-DR+", "T_cells_CD4_terminal_effector_memory"),
   T_regs = c("T_regs_KLRB_RORC", "T_regs_cytotoxic", "T_regs_memory", "T_regs_naive"),
   ##### CD8
-  T_cells_CD8 = c("T_cells_CD8_naive", "T_cells_CD8_memory", "NKT_cells", "T_cells_CD8_HLA-DR+", "T_cells_CD8_proliferative"),
+  T_cells_CD8 = c("T_cells_CD8_naive", "T_cells_CD8_memory", "T_cells_CD8_HLA-DR+", "T_cells_CD8_proliferative"),
   T_cells_CD8_naive = c("T_cells_CD8_naive_IFN"),
   T_cells_CD8_memory = c("T_cells_CD8_central_memory", "T_cells_CD8_terminal_effector_memory", "T_cells_CD8_memory_KLRC2+", "T_cells_CD8_tissue_resident_memory"),
   T_cells_CD8_central_memory = c("T_cells_CD8_central_memory_CCR4+", "T_cells_CD8_central_memory_CCR4-", "T_cells_CD8_central_memory_GZMB+", "T_cells_CD8_central_memory_GZMK+"),
