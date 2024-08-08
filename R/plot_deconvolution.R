@@ -87,10 +87,14 @@ plot_corr_celltype <- function(data, cell_type_filter,
   }
 
   if(add_metrics){
+      ccc <- yardstick::ccc_vec(subs$proportion_actual, subs$proportion_estimate)
       rmse <- sqrt(mean((subs$proportion_actual - subs$proportion_estimate)^2))
       cors <- stats::cor.test(subs$proportion_actual, subs$proportion_estimate)
       p <- p +
-        ggplot2::annotate("text", label = paste0("RMSE = ", round(rmse, 4), "\nR = ", round(cors$estimate, 2), "\nP =  ", cors$p.value, 4),
+        ggplot2::annotate("text", label = paste0("RMSE = ", round(rmse, 4),
+                                                 "\nCCC = ", round(ccc, 4),
+                                                 "\nR = ", round(cors$estimate, 2),
+                                                 "\nP =  ", cors$p.value, 4),
                           x = min(subs$proportion_estimate),
                           y = max(subs$proportion_actual),
                           hjust = 0,
@@ -196,12 +200,16 @@ plot_deconvolution_corrs <- function(deconvolution,
 
   }
   if(add_metrics){
-    rmse <- get_rmse(deconvolution, actual)
     deconvolution <- dplyr::arrange(deconvolution, .data$sample, .data$cell_type)
     actual <- dplyr::arrange(actual, .data$sample, .data$cell_type)
     cors <- stats::cor.test(deconvolution$proportion, actual$proportion)
+    rmse <- get_rmse(deconvolution, actual)
+    ccc <- yardstick::ccc_vec(actual$proportion, deconvolution$proportion)
     p <- p +
-      ggplot2::annotate("text", label = paste0("RMSE = ", round(rmse, 4), "\nR = ", round(cors$estimate, 2), "\nP =  ", round(cors$p.value, 4)),
+      ggplot2::annotate("text", label = paste0("RMSE = ", round(rmse, 4),
+                                               "\nCCC = ", round(ccc, 4),
+                                               "\nR = ", round(cors$estimate, 2),
+                                               "\nP =  ", round(cors$p.value, 4)),
                x = min(deconvolution$proportion),
                y = max(actual$proportion),
                hjust = 0,
