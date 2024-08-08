@@ -3,3 +3,4 @@
 ^LICENSE\.md$
 ^README\.Rmd$
 ^\.github$
+data/cell_types.csv
