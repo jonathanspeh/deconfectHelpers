@@ -18,6 +18,7 @@ cell_list <- list(
   NK_cells = c("NK_cells_resting", "NK_cells_activated", "NK_CD56", "NK_cells_proliferating"),
   NK_CD56 = c("NK_CD56bright", "NK_CD56dim_CD57+", "NK_CD56dim_CD57-", "NK_CD56dim_CD57int", "NK_CD56dim_CD57low"),
   B_cells = c("B_cells_naive", "B_cells_memory", "Plasma_cells", "plasmablasts", "B_cells_activated", "B_cells_CD5", "B_cells_transitional"),
+  Plasma_cells = c("Plasma_cells_immature"),
   ### Bcells
   B_cells_memory = c("B_cells_atypical_memory", "B_cells_non_switched_memory", "B_cells_switched_memory"),
   B_cells_naive = c("B_cells_naive_IFN"),
@@ -31,12 +32,13 @@ cell_list <- list(
   T_cells_CD4_memory = c("T_cells_CD4_memory_resting", "T_cells_CD4_memory_activated", "T_cells_CD4_memory_exhausted", "T_cells_CD4_memory_HLA-DR+", "T_cells_CD4_terminal_effector_memory"),
   T_regs = c("T_regs_KLRB_RORC", "T_regs_cytotoxic", "T_regs_memory", "T_regs_naive"),
   ##### CD8
-  T_cells_CD8 = c("T_cells_CD8_naive", "T_cells_CD8_memory", "T_cells_CD8_HLA-DR+", "T_cells_CD8_proliferative"),
+  T_cells_CD8 = c("T_cells_CD8_naive", "T_cells_CD8_memory", "T_cells_CD8_HLA-DR+", "T_cells_CD8_proliferative", "T_cells_CD8_NKT_like"),
   T_cells_CD8_naive = c("T_cells_CD8_naive_IFN"),
   T_cells_CD8_memory = c("T_cells_CD8_central_memory", "T_cells_CD8_terminal_effector_memory", "T_cells_CD8_memory_KLRC2+", "T_cells_CD8_tissue_resident_memory"),
   T_cells_CD8_central_memory = c("T_cells_CD8_central_memory_CCR4+", "T_cells_CD8_central_memory_CCR4-", "T_cells_CD8_central_memory_GZMB+", "T_cells_CD8_central_memory_GZMK+"),
   ##### gd
-  T_cells_gd = c("T_cells_gd_naive", "T_cells_gd_VD1", "T_cells_gd_VD2"),
+  T_cells_gd = c("T_cells_gd_naive", "T_cells_gd_non_VD2", "T_cells_gd_VD2"),
+  T_cells_gd_non_VD2 = c("T_cells_gd_VD1"),
   T_cells_gd_VD1 = c("T_cells_gd_VD1_GZMB+", "T_cells_gd_VD1_GZMK+"),
   T_cells_gd_VD2 = c("T_cells_gd_VD2_GZMB+", "T_cells_gd_VD2_GZMK+")
   )

@@ -44,7 +44,7 @@ abis;T cell CD4+ memory;T_cells_CD4_memory
 abis;T cell MAIT;MAIT
 abis;T cell gamma delta VD2;T_cells_gd_VD2
 abis;Neutrophil;neutrophils
-abis;T cell gamma delta non-VD2;T_cells_gd_non-VD2
+abis;T cell gamma delta non-VD2;T_cells_gd_non_VD2
 abis;Basophil;basophils
 abis;Monocyte non-conventional;monocytes_non_conventional
 abis;B cell memory;B_cells_memory
@@ -82,3 +82,58 @@ terekhova_coarse;gd T cells;T_cells_gd
 terekhova_coarse;MAIT cells;MAIT
 terekhova_coarse;DN T cells;T_cells_DN
 terekhova_coarse;Progenitor cells;progenitor_cells
+terekhova_fine;b_cells_Activated;B_cells_activated
+terekhova_fine;b_cells_Atypical memory;B_cells_atypical_memory
+terekhova_fine;b_cells_CD5+ B cells;B_cells_CD5
+terekhova_fine;b_cells_Naive;B_cells_naive
+terekhova_fine;b_cells_Naive-IFN;B_cells_naive_IFN
+terekhova_fine;b_cells_Non-switched memory;B_cells_non_switched_memory
+terekhova_fine;b_cells_Plasma cells;Plasma_cells
+terekhova_fine;b_cells_Switched memory;B_cells_switched_memory
+terekhova_fine;b_cells_Transitional;B_cells_transitional
+terekhova_fine;cd4_t_cells_Exhausted-like memory;T_cells_CD4_memory_exhausted
+terekhova_fine;cd4_t_cells_HLA-DR+ memory;T_cells_CD4_memory_HLA-DR+
+terekhova_fine;cd4_t_cells_Naive;T_cells_CD4_naive
+terekhova_fine;cd4_t_cells_Naive-IFN;T_cells_CD4_naive_IFN
+terekhova_fine;cd4_t_cells_Temra;T_cells_CD4_terminal_effector_memory
+terekhova_fine;cd4_t_cells_Terminal effector;T_cells_CD4_terminal_effector
+terekhova_fine;cd4_t_cells_Tfh;T_cells_FH
+terekhova_fine;cd4_t_cells_Th1;Th1
+terekhova_fine;cd4_t_cells_Th1_Th17;Th1/Th17
+terekhova_fine;cd4_t_cells_Th17;Th17
+terekhova_fine;cd4_t_cells_Th2;Th2
+terekhova_fine;cd4_t_cells_Th22;Th22
+terekhova_fine;cd4_t_cells_Treg cytotoxic;T_regs_cytotoxic
+terekhova_fine;cd4_t_cells_Treg KLRB1+RORC+;T_regs_KLRB_RORC
+terekhova_fine;cd4_t_cells_Treg memory;T_regs_memory
+terekhova_fine;cd4_t_cells_Treg naive;T_regs_naive
+terekhova_fine;conventional_cd8_t_cells_HLA-DR+;T_cells_CD8_HLA-DR+
+terekhova_fine;conventional_cd8_t_cells_Naive;T_cells_CD8_naive
+terekhova_fine;conventional_cd8_t_cells_Naive-IFN;T_cells_CD8_naive_IFN
+terekhova_fine;conventional_cd8_t_cells_NKT-like;T_cells_CD8_NKT_like
+terekhova_fine;conventional_cd8_t_cells_Proliferative;T_cells_CD8_proliferative
+terekhova_fine;conventional_cd8_t_cells_Tcm CCR4-;T_cells_CD8_central_memory_CCR4-
+terekhova_fine;conventional_cd8_t_cells_Tcm CCR4+;T_cells_CD8_central_memory_CCR4+
+terekhova_fine;conventional_cd8_t_cells_Tem GZMB+;T_cells_CD8_central_memory_GZMB+
+terekhova_fine;conventional_cd8_t_cells_Tem GZMK+;T_cells_CD8_central_memory_GZMK+
+terekhova_fine;conventional_cd8_t_cells_Temra;T_cells_CD8_terminal_effector_memory
+terekhova_fine;conventional_cd8_t_cells_Tmem KLRC2+;T_cells_CD8_memory_KLRC2+
+terekhova_fine;conventional_cd8_t_cells_Trm;T_cells_CD8_tissue_resident_memory
+terekhova_fine;DN T cells;T_cells_DN
+terekhova_fine;gd_t_cells_gd naive;T_cells_gd_naive
+terekhova_fine;gd_t_cells_Vd1 GZMB+;T_cells_gd_VD1_GZMB+
+terekhova_fine;gd_t_cells_Vd1 GZMK+;T_cells_gd_VD1_GZMK+
+terekhova_fine;gd_t_cells_Vd2 GZMB+;T_cells_gd_VD2_GZMB+
+terekhova_fine;gd_t_cells_Vd2 GZMK+;T_cells_gd_VD2_GZMK+
+terekhova_fine;MAIT cells;MAIT
+terekhova_fine;myeloid_cells_cDCs;conventional_dendritic_cells
+terekhova_fine;myeloid_cells_Classical monocytes;monocytes_conventional
+terekhova_fine;myeloid_cells_Non-classical monocytes;monocytes_non_conventional
+terekhova_fine;myeloid_cells_pDCs;lymphoid_dendritic_cells
+terekhova_fine;nk_cells_CD56bright;NK_CD56bright
+terekhova_fine;nk_cells_CD56dim CD57-;NK_CD56dim_CD57-
+terekhova_fine;nk_cells_CD56dim CD57+;NK_CD56dim_CD57+
+terekhova_fine;nk_cells_CD56dim CD57int;NK_CD56dim_CD57int
+terekhova_fine;nk_cells_CD56dim CD57low;NK_CD56dim_CD57low
+terekhova_fine;nk_cells_Proliferative;NK_cells_proliferating
+terekhova_fine;Progenitor cells;progenitor_cells
