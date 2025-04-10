@@ -137,3 +137,100 @@ terekhova_fine;nk_cells_CD56dim CD57int;NK_CD56dim_CD57int
 terekhova_fine;nk_cells_CD56dim CD57low;NK_CD56dim_CD57low
 terekhova_fine;nk_cells_Proliferative;NK_cells_proliferating
 terekhova_fine;Progenitor cells;progenitor_cells
+hao_l1;Mono;monocytes
+hao_l1;CD4 T;T_cells_CD4
+hao_l1;CD8 T;T_cells_CD8
+hao_l1;NK;NK_cells
+hao_l1;B;B_cells
+hao_l1;other T;T_cells_other
+hao_l1;other;other
+hao_l1;DC;conventional_dendritic_cells
+hao_l2;ASDC;conventional_dendritic_cells_axl+
+hao_l2;B intermediate;B_cells_transitional
+hao_l2;B memory;B_cells_memory
+hao_l2;B naive;B_cells_naive
+hao_l2;CD14 Mono;monocytes_conventional
+hao_l2;CD16 Mono;monocytes_non_conventional
+hao_l2;CD4 CTL;T_cells_CD4_CTL
+hao_l2;CD4 Naive;T_cells_CD4_naive
+hao_l2;CD4 Proliferating;T_cells_CD4_proliferating
+hao_l2;CD4 TCM;T_cells_CD4_central_memory
+hao_l2;CD4 TEM;T_cells_CD4_terminal_effector_memory
+hao_l2;CD8 Naive;T_cells_CD8_naive
+hao_l2;CD8 Proliferating;T_cells_CD8_proliferative
+hao_l2;CD8 TCM;T_cells_CD8_central_memory
+hao_l2;CD8 TEM;T_cells_CD8_terminal_effector_memory
+hao_l2;cDC1;conventional_dendritic_cells_1
+hao_l2;cDC2;conventional_dendritic_cells_2
+hao_l2;dnT;T_cells_DN
+hao_l2;Doublet;doublet
+hao_l2;Eryth;erythrocyte
+hao_l2;gdT;T_cells_gd
+hao_l2;HSPC;progenitor_cells
+hao_l2;ILC;innate_lymphoid_cells
+hao_l2;MAIT;MAIT
+hao_l2;NK;NK_cells
+hao_l2;NK Proliferating;NK_cells_proliferating
+hao_l2;NK_CD56bright;NK_CD56bright
+hao_l2;pDC;lymphoid_dendritic_cells
+hao_l2;Plasmablast;plasmablasts
+hao_l2;Platelet;platelet
+hao_l2;Treg;T_regs
+hao_l3;ASDC_mDC;conventional_dendritic_cells_axl+
+hao_l3;ASDC_pDC;lymphoid_dendritic_cells_axl+
+hao_l3;B intermediate kappa;B_cells_transitional_kappa
+hao_l3;B intermediate lambda;B_cells_transitional_lambda
+hao_l3;B memory kappa;B_cells_memory_kappa
+hao_l3;B memory lambda;B_cells_memory_lambda
+hao_l3;B naive kappa;B_cells_naive_kappa
+hao_l3;B naive lambda;B_cells_naive_lambda
+hao_l3;CD14 Mono;monocytes_conventional
+hao_l3;CD16 Mono;monocytes_non_conventional
+hao_l3;CD4 CTL;T_cells_CD4_CTL
+hao_l3;CD4 Naive;T_cells_CD4_naive
+hao_l3;CD4 Proliferating;T_cells_CD4_proliferating
+hao_l3;CD4 TCM_1;T_cells_CD4_central_memory_1
+hao_l3;CD4 TCM_2;T_cells_CD4_central_memory_2
+hao_l3;CD4 TCM_3;T_cells_CD4_central_memory_3
+hao_l3;CD4 TEM_1;T_cells_CD4_terminal_effector_memory_1
+hao_l3;CD4 TEM_2;T_cells_CD4_terminal_effector_memory_2
+hao_l3;CD4 TEM_3;T_cells_CD4_terminal_effector_memory_3
+hao_l3;CD4 TEM_4;T_cells_CD4_terminal_effector_memory_4
+hao_l3;CD8 Naive;T_cells_CD8_naive_1
+hao_l3;CD8 Naive_2;T_cells_CD8_naive_2
+hao_l3;CD8 Proliferating;T_cells_CD8_proliferative
+hao_l3;CD8 TCM_1;T_cells_CD8_central_memory_1
+hao_l3;CD8 TCM_2;T_cells_CD8_central_memory_2
+hao_l3;CD8 TCM_3;T_cells_CD8_central_memory_3
+hao_l3;CD8 TEM_1;T_cells_CD8_terminal_effector_memory_1
+hao_l3;CD8 TEM_2;T_cells_CD8_terminal_effector_memory_2
+hao_l3;CD8 TEM_3;T_cells_CD8_terminal_effector_memory_3
+hao_l3;CD8 TEM_4;T_cells_CD8_terminal_effector_memory_4
+hao_l3;CD8 TEM_5;T_cells_CD8_terminal_effector_memory_5
+hao_l3;CD8 TEM_6;T_cells_CD8_terminal_effector_memory_6
+hao_l3;cDC1;conventional_dendritic_cells_1
+hao_l3;cDC2_1;conventional_dendritic_cells_2_1
+hao_l3;cDC2_2;conventional_dendritic_cells_2_2
+hao_l3;dnT_1;T_cells_DN_1
+hao_l3;dnT_2;T_cells_DN_2
+hao_l3;Doublet;doublet
+hao_l3;Eryth;erythrocyte
+hao_l3;gdT_1;T_cells_gd_1
+hao_l3;gdT_2;T_cells_gd_2
+hao_l3;gdT_3;T_cells_gd_3
+hao_l3;gdT_4;T_cells_gd_4
+hao_l3;HSPC;progenitor_cells
+hao_l3;ILC;innate_lymphoid_cells
+hao_l3;MAIT;MAIT
+hao_l3;NK Proliferating;NK_cells_proliferating
+hao_l3;NK_1;NK_cells_1
+hao_l3;NK_2;NK_cells_2
+hao_l3;NK_3;NK_cells_3
+hao_l3;NK_4;NK_cells_4
+hao_l3;NK_CD56bright;NK_CD56bright
+hao_l3;pDC;lymphoid_dendritic_cells
+hao_l3;Plasma;Plasma_cells
+hao_l3;Plasmablast;plasmablasts
+hao_l3;Platelet;platelet
+hao_l3;Treg Memory;T_regs_memory
+hao_l3;Treg Naive;T_regs_naive
