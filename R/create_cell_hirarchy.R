@@ -2,24 +2,29 @@
 
 cell_list <- list(
   # Top
-  cells = c("immune_cells", "non_immune_cells", "uncharacterised", "progenitor_cells", "other", "doublet"),
-  non_immune_cells = c("erythrocyte", "platelet"),
-  immune_cells = c("myeloid_cells", "lymphoid_cells"),
+  cells = c("leukocytes", "erythrocytes", "platelets", "uncharacterised", "progenitor_cells", "other", "doublet"),
+  leukocytes = c("myeloid_cells", "mononuclear_leukocytes"),
   ### Myeloid
-  myeloid_cells = c("conventional_dendritic_cells", "monocytes_macrophages",
-                    "granulocytes",  "mast_cells", "myeloid_progenitor_cells"),
+  myeloid_cells = c("granulocytes",  "mast_cells", "myeloid_progenitor_cells"),
   mast_cells = c("mast_cells_resting", "mast_cells_activated"),
+  granulocytes = c("neutrophils", "basophils", "eosinophils"),
+  ### mononuclear leukocytes
+  mononuclear_leukocytes = c("lymphoid_cells",  "mononuclear_phagocytes"),
+
+  mononuclear_phagocytes = c("dendritic_cells", "monocytes_macrophages"),
+  dendritic_cells = c("lymphoid_dendritic_cells", "conventional_dendritic_cells"),
   conventional_dendritic_cells = c("conventional_dendritic_cells_resting", "conventional_dendritic_cells_activated", "conventional_dendritic_cells_axl+", "conventional_dendritic_cells_1", "conventional_dendritic_cells_2"),
   conventional_dendritic_cells_2 = c("conventional_dendritic_cells_2_1", "conventional_dendritic_cells_2_2"),
+  lymphoid_dendritic_cells = c("lymphoid_dendritic_cells_axl+"),
+
   monocytes_macrophages = c("monocytes", "macrophages"),
   monocytes = c("monocytes_conventional", "monocytes_non_conventional"),
   macrophages = c("macrophages_M0", "macrophages_M1", "macrophages_M2"),
-  granulocytes = c("neutrophils", "basophils", "eosinophils"),
-  ### Lymphoid
-  lymphoid_cells = c("B_cells", "T_cells", "NK_cells", "lymphoid_dendritic_cells", "innate_lymphoid_cells"),
-  lymphoid_dendritic_cells = c("lymphoid_dendritic_cells_axl+"),
-  NK_cells = c("NK_cells_resting", "NK_cells_activated", "NK_CD56", "NK_cells_proliferating"),
-  NK_cells = c("NK_cells_1", "NK_cells_2", "NK_cells_3", "NK_cells_4"),
+
+
+  ###ä Lymphoid cells
+  lymphoid_cells = c("B_cells", "T_cells", "NK_cells", "innate_lymphoid_cells"),
+  NK_cells = c("NK_cells_resting", "NK_cells_activated", "NK_CD56", "NK_cells_proliferating", "NK_cells_1", "NK_cells_2", "NK_cells_3", "NK_cells_4"),
   NK_CD56 = c("NK_CD56bright", "NK_CD56dim_CD57+", "NK_CD56dim_CD57-", "NK_CD56dim_CD57int", "NK_CD56dim_CD57low"),
   B_cells = c("B_cells_naive", "B_cells_memory", "Plasma_cells", "plasmablasts", "B_cells_activated", "B_cells_CD5", "B_cells_transitional"),
   B_cells_transitional = c("B_cells_transitional_kappa", "B_cells_transitional_lambda"),
